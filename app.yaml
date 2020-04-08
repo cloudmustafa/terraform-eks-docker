@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hello-world-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: hello-world  
+    spec:     # pod spec                  
+      containers: 
+      - name: hello-world 
+        image: 385591722563.dkr.ecr.us-east-1.amazonaws.com/react-api:v3 # image we pushed
+        ports:
+        - containerPort: 3500
